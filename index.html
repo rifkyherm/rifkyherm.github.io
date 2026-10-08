@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rifky — CV</title>
+<meta name="description" content="Rifky — software &amp; systems engineer: simulasi ilmiah, sistem low-level (C++/CUDA/Vulkan), runtime agen AI, tooling keamanan.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f5">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#161412">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23a35a2e'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='36' fill='%23faf8f5' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#faf8f5; --ink:#1c1a17; --muted:#6e6960; --faint:#a59e94;
+  --rule:#e7e2d9; --chip-bg:#f2eee6; --chip-ink:#5c564c;
+  --accent:#a35a2e; --link-line:#dcbea7;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#161412; --ink:#ece7de; --muted:#a59e94; --faint:#7c766c;
+    --rule:#2c2924; --chip-bg:#231f19; --chip-ink:#b7b0a4;
+    --accent:#d99c69; --link-line:#5a4531;
+  }
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:16px/1.68 ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--link-line)}
+a:hover{border-bottom-color:var(--accent)}
+.wrap{max-width:800px; margin:0 auto; padding:64px 30px 88px}
+
+.langbar{position:fixed; top:18px; right:18px; display:flex; gap:2px; background:var(--chip-bg); border:1px solid var(--rule); border-radius:999px; padding:3px; z-index:10}
+.langbar button{font:600 12px/1 ui-sans-serif,system-ui,sans-serif; letter-spacing:.06em; padding:6px 12px; border:0; border-radius:999px; background:transparent; color:var(--muted); cursor:pointer}
+.langbar button.on{background:var(--paper); color:var(--ink); box-shadow:0 1px 2px rgba(0,0,0,.10)}
+
+header{border-bottom:1px solid var(--rule); padding-bottom:30px}
+.eyebrow{font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin:0 0 20px}
+h1{font-family:ui-serif,Georgia,"Times New Roman",serif; font-size:54px; line-height:1.03; letter-spacing:-.015em; font-weight:600; margin:0 0 16px}
+.contact{font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:4px 10px; align-items:baseline; margin:0}
+.contact .sep{color:var(--faint); user-select:none}
+
+section{margin-top:52px}
+h2{font-size:12.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); padding-bottom:11px; border-bottom:1px solid var(--rule); margin:0 0 22px; break-after:avoid}
+p{margin:0 0 12px}
+.summary{font-size:17px; line-height:1.7; max-width:64ch}
+
+.skillrow{display:grid; grid-template-columns:190px 1fr; gap:22px; padding:11px 0}
+.skillrow + .skillrow{border-top:1px solid var(--rule)}
+.k{font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); padding-top:3px}
+.v{color:var(--ink)}
+
+.proj{padding:22px 0; border-bottom:1px solid var(--rule); break-inside:avoid}
+.proj:last-child{border-bottom:0; padding-bottom:6px}
+.ptop{display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin-bottom:8px}
+.proj h3{font-size:17.5px; font-weight:650; letter-spacing:-.01em; margin:0}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{font:500 11.5px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:var(--chip-ink); background:var(--chip-bg); border-radius:999px; padding:5px 9px; white-space:nowrap}
+.proj p{color:var(--ink); margin:0; max-width:70ch}
+
+footer{margin-top:72px; padding-top:22px; border-top:1px solid var(--rule); font-size:13px; color:var(--faint)}
+
+@media (max-width:560px){
+  .wrap{padding:44px 20px 64px}
+  h1{font-size:42px}
+  .skillrow{grid-template-columns:1fr; gap:4px}
+  .langbar{top:12px; right:12px}
+}
+
+@media print{
+  @page{margin:15mm 16mm}
+  :root{--paper:#fff; --ink:#111; --muted:#555; --faint:#777; --rule:#d8d8d8; --chip-bg:#f1f1f1; --chip-ink:#333; --accent:#8a4b25; --link-line:#ccc}
+  body{background:#fff; color:#111; font-size:13.5px}
+  .langbar{display:none}
+  .wrap{max-width:none; padding:0}
+  a{color:#111}
+  h1{font-size:40px}
+  section{margin-top:28px}
+  .summary{font-size:14.5px}
+  footer{margin-top:36px}
+}
+</style>
+</head>
+<body>
+<div class="langbar" role="group" aria-label="Bahasa / Language">
+  <button id="btn-id" type="button" class="on">ID</button>
+  <button id="btn-en" type="button">EN</button>
+</div>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Software &amp; Systems Engineer</p>
+  <h1>Rifky</h1>
+  <p class="contact">
+    <a href="mailto:rifkysaja@proton.me">rifkysaja@proton.me</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/rifkyherm" rel="me">github.com/rifkyherm</a>
+    <span class="sep">·</span>
+    <span>Indonesia (WITA, UTC+8)</span>
+    <span class="sep">·</span>
+    <a href="cv.pdf">PDF&nbsp;↓</a>
+  </p>
+</header>
+
+<main id="main-id">
+  <section>
+    <h2>Ringkasan</h2>
+    <p class="summary">Software engineer yang membangun sistem dari nol — simulasi ilmiah skala besar, pemrograman low-level (C++/CUDA/Vulkan), runtime agen AI, hingga tooling keamanan. Terbiasa memegang siklus penuh sebuah proyek: riset, arsitektur, implementasi, verifikasi berbasis bukti, dan rilis. Tertarik pada masalah yang jawabannya harus dibuktikan dengan angka, bukan klaim.</p>
+  </section>
+
+  <section>
+    <h2>Keahlian</h2>
+    <div class="skillrow"><span class="k">Bahasa</span><span class="v">C++ · Python · Go · TypeScript · Dart · CUDA · Rust (dasar)</span></div>
+    <div class="skillrow"><span class="k">Sistem &amp; Rendering</span><span class="v">Vulkan · CMake · Linux · Flutter (Impeller) · Node.js</span></div>
+    <div class="skillrow"><span class="k">AI &amp; ML</span><span class="v">LLM agents · MCP · Ollama · Stable Diffusion/SDXL · LoRA · ComfyUI</span></div>
+    <div class="skillrow"><span class="k">Sains &amp; Algoritma</span><span class="v">Simulasi numerik · NumPy (implementasi dari nol) · algoritma graf · cellular automata · MAP-Elites</span></div>
+    <div class="skillrow"><span class="k">Keamanan</span><span class="v">OWASP Top 10 · pemindaian &amp; crawling · triase temuan · tooling debugging</span></div>
+  </section>
+
+  <section>
+    <h2>Proyek Terpilih</h2>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>The World Simulation CL</h3>
+        <div class="chips"><span class="chip">C++</span><span class="chip">CUDA</span><span class="chip">Vulkan</span><span class="chip">Python</span></div>
+      </div>
+      <p>Simulasi Bumi 4 miliar tahun — dari planet mati hingga sekarang — dengan kehidupan yang berevolusi bebas dari satu replikator awal. Metabolisme tidak di-hardcode: dihitung dari energi bebas Gibbs pada kondisi lokal. Milestone inti tercapai — tulang punggung 4 Ga selesai dalam 31 menit (21.773 langkah), kekekalan massa &lt; 1×10⁻¹⁴, dan peristiwa oksigenasi besar (GOE) muncul sebagai konsekuensi, bukan masukan.</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Deleter v7.0.0 &ldquo;Omni&rdquo;</h3>
+        <div class="chips"><span class="chip">Go</span><span class="chip">Flutter</span><span class="chip">Python</span><span class="chip">Security</span></div>
+      </div>
+      <p>Platform keamanan polyglot dalam satu paket: bug hunter, debugger tingkat tinggi, dan AI assistant offline — sebagai aplikasi desktop (Flutter, render native tanpa HTML) sekaligus CLI. 64 pemeriksaan keamanan dengan hasil OWASP Top 10 86,1%; parser stack trace multi-bahasa dengan deteksi akar masalah otomatis; log viewer realtime; antivirus lite dengan analisis entropi. AI assistant berjalan 100% offline — deterministik dan dapat diaudit.</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Herkan Agent</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">LLM agents</span><span class="chip">Runtime</span></div>
+      </div>
+      <p>Runtime agen otonom dengan satu properti yang tidak dimiliki arsitektur populer: setiap aksi yang menyentuh dunia luar melewati satu gerbang otorisasi yang sama, tidak dapat dilangkahi — termasuk oleh agen itu sendiri lewat delegasi. Mendukung 7 provider LLM, delegasi subagent berkedalaman terbatas, scheduler cron persisten, gateway HTTP localhost ber-token, kompresi konteks, dan mode otonom berbudget. Terverifikasi hidup melawan LLM lokal (Ollama).</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Physarum-Atlas</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">Algoritma</span></div>
+      </div>
+      <p>Dua model jamur lendir (Physarum) dibangun dari nol dengan NumPy — tanpa scipy/matplotlib — lalu diadu melawan algoritma graf klasik pada peta kota nyata. Alatnya ditulis sendiri: triangulasi Delaunay (Bowyer–Watson), convex hull, MST (Kruskal + union-find), heuristik Steiner, Dijkstra, hingga solver Conjugate Gradient. Hasil terukur: jaringan agen mencapai cakupan 89–100% pada peta yang diuji.</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Lenia-Ω</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">CUDA</span><span class="chip">Cellular automata</span></div>
+      </div>
+      <p>Implementasi Lenia yang diperluas — multi-kanal, multi-kernel, kernel anisotropik, mode konservasi massa — ditulis sebagai oracle rujukan: lambat tetapi terbukti benar, lengkap dengan bukti bahwa Game of Life adalah kasus khususnya. Pencarian ribuan spesies dengan MAP-Elites untuk quality-diversity, plus renderer video.</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Komik-Manhwa</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">SDXL</span><span class="chip">LoRA</span><span class="chip">ComfyUI</span></div>
+      </div>
+      <p>Pipeline generasi komik bergaya manhwa (Webtoon vertikal) dengan SDXL: riset gaya visual, fine-tuning dan konversi LoRA, workflow ComfyUI panel-per-panel, hingga perakitan chapter — dengan konsistensi karakter antar-panel lewat seed dan deskripsi kanonik.</p>
+    </article>
+
+    <!-- PENDIDIKAN / PENGALAMAN: tambahkan bagian di sini saat datanya tersedia -->
+  </section>
+</main>
+
+<main id="main-en" hidden>
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">Software engineer who builds systems from scratch — large-scale scientific simulation, low-level programming (C++/CUDA/Vulkan), AI agent runtimes, and security tooling. Used to owning a project end to end: research, architecture, implementation, evidence-based verification, and release. Drawn to problems whose answers must be proven with numbers, not claimed.</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skillrow"><span class="k">Languages</span><span class="v">C++ · Python · Go · TypeScript · Dart · CUDA · Rust (basic)</span></div>
+    <div class="skillrow"><span class="k">Systems &amp; Rendering</span><span class="v">Vulkan · CMake · Linux · Flutter (Impeller) · Node.js</span></div>
+    <div class="skillrow"><span class="k">AI &amp; ML</span><span class="v">LLM agents · MCP · Ollama · Stable Diffusion/SDXL · LoRA · ComfyUI</span></div>
+    <div class="skillrow"><span class="k">Science &amp; Algorithms</span><span class="v">Numerical simulation · NumPy (from-scratch) · graph algorithms · cellular automata · MAP-Elites</span></div>
+    <div class="skillrow"><span class="k">Security</span><span class="v">OWASP Top 10 · scanning &amp; crawling · finding triage · debugging tooling</span></div>
+  </section>
+
+  <section>
+    <h2>Selected Projects</h2>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>The World Simulation CL</h3>
+        <div class="chips"><span class="chip">C++</span><span class="chip">CUDA</span><span class="chip">Vulkan</span><span class="chip">Python</span></div>
+      </div>
+      <p>A 4-billion-year Earth simulation — from dead planet to the present day — with life evolving freely from a single initial replicator. Metabolism is not hardcoded: it is computed from local Gibbs free energy. Core milestones reached — the 4 Ga backbone runs in 31 minutes (21,773 steps), mass conservation &lt; 1×10⁻¹⁴, and the Great Oxidation Event (GOE) emerges as a consequence, not an input.</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Deleter v7.0.0 &ldquo;Omni&rdquo;</h3>
+        <div class="chips"><span class="chip">Go</span><span class="chip">Flutter</span><span class="chip">Python</span><span class="chip">Security</span></div>
+      </div>
+      <p>A polyglot security platform in one package: bug hunter, high-level debugger, and offline AI assistant — as a desktop app (Flutter, native rendering, no HTML) and a CLI. 64 security checks with 86.1% OWASP Top 10 coverage; multi-language stack-trace parser with automatic root-cause detection; realtime log viewer; lite antivirus with entropy analysis. The AI assistant runs 100% offline — deterministic and auditable.</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Herkan Agent</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">LLM agents</span><span class="chip">Runtime</span></div>
+      </div>
+      <p>An autonomous agent runtime built around one property popular architectures lack: every action touching the outside world passes through a single authorization gate that nobody can bypass — including the agent itself through delegation. Supports 7 LLM providers, depth-limited subagent delegation, a persistent cron scheduler, a token-gated localhost HTTP gateway, context compression, and a budgeted autonomous mode. Verified live against a local LLM (Ollama).</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Physarum-Atlas</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">Algorithms</span></div>
+      </div>
+      <p>Two slime-mold (Physarum) models built from scratch with NumPy — no scipy/matplotlib — then benchmarked against classical graph algorithms on real city maps. Every tool is hand-written: Delaunay triangulation (Bowyer–Watson), convex hull, MST (Kruskal + union-find), Steiner heuristic, Dijkstra, and a Conjugate Gradient solver. Measured result: the agent network reaches 89–100% coverage on the tested maps.</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Lenia-Ω</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">CUDA</span><span class="chip">Cellular automata</span></div>
+      </div>
+      <p>An extended Lenia — multi-channel, multi-kernel, anisotropic kernels, mass-conservation mode — written as a reference oracle: slow but provably correct, including proof that Game of Life is a special case. Large-scale species search with MAP-Elites for quality-diversity, plus a video renderer.</p>
+    </article>
+
+    <article class="proj">
+      <div class="ptop">
+        <h3>Komik-Manhwa</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">SDXL</span><span class="chip">LoRA</span><span class="chip">ComfyUI</span></div>
+      </div>
+      <p>A manhwa-style comic generation pipeline (vertical Webtoon format) with SDXL: visual-style research, LoRA fine-tuning and conversion, panel-by-panel ComfyUI workflow, and chapter assembly — keeping character consistency across panels via seeds and canonical descriptions.</p>
+    </article>
+
+    <!-- EDUCATION / EXPERIENCE: add a section here when the data is available -->
+  </section>
+</main>
+
+<footer>
+  <span id="footer-id">© 2026 Rifky · Terakhir diperbarui: Oktober 2026</span>
+  <span id="footer-en" hidden>© 2026 Rifky · Last updated: October 2026</span>
+</footer>
+</div>
+
+<script>
+(function(){
+  var mainId = document.getElementById('main-id'),
+      mainEn = document.getElementById('main-en'),
+      fId = document.getElementById('footer-id'),
+      fEn = document.getElementById('footer-en'),
+      bId = document.getElementById('btn-id'),
+      bEn = document.getElementById('btn-en');
+  function set(l){
+    var lang = (l === 'en') ? 'en' : 'id';
+    document.documentElement.lang = lang;
+    document.title = (lang === 'id') ? 'Rifky — CV' : 'Rifky — CV (English)';
+    mainId.hidden = (lang !== 'id');
+    mainEn.hidden = (lang === 'id');
+    fId.hidden = (lang !== 'id');
+    fEn.hidden = (lang === 'id');
+    bId.classList.toggle('on', lang === 'id');
+    bEn.classList.toggle('on', lang === 'en');
+    try { localStorage.setItem('cv-lang', lang); } catch(e) {}
+  }
+  var q = null;
+  try { q = new URLSearchParams(location.search).get('lang'); } catch(e) {}
+  var init = q;
+  if (!init) { try { init = localStorage.getItem('cv-lang'); } catch(e) {} }
+  set(init || 'id');
+  bId.addEventListener('click', function(){ set('id'); });
+  bEn.addEventListener('click', function(){ set('en'); });
+})();
+</script>
+</body>
+</html>
